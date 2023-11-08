@@ -26,6 +26,10 @@ import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 
+import ipsfa from "./company/ipsfa.png";
+import coffunity from "./company/coffunity.png";
+import aeme from "./company/12aeme.png";
+
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
@@ -56,6 +60,9 @@ export {
   shopify,
   starbucks,
   tesla,
+  ipsfa,
+  coffunity,
+  aeme,
   carrent,
   jobit,
   tripguide,
