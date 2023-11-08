@@ -4,14 +4,15 @@ import { Points, PointMaterial, Preload } from "@react-three/drei";
 import { inSphere } from "maath/random";
 
 const Stars = () => {
-  const ref = useRef(null);
+  const ref = useRef() as React.MutableRefObject<THREE.Points>;
 
   const mySphere = inSphere(new Float32Array(5000), {
     radius: 1.2,
   }) as Float32Array;
 
   useFrame((_, delta) => {
-    ref.current.rotation.x -= delta / 10;
+    if (!ref.current) return;
+    ref.current!.rotation.x -= delta / 10;
     ref.current.rotation.y -= delta / 15;
   });
 
@@ -21,7 +22,7 @@ const Stars = () => {
         <PointMaterial
           transparent
           color="#f272c8"
-          size={0.002}
+          size={0.004}
           sizeAttenuation={true}
           depthWrite={false}
         />
