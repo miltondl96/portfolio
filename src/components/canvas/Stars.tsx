@@ -4,7 +4,8 @@ import { Points, PointMaterial, Preload } from "@react-three/drei";
 import { inSphere } from "maath/random";
 
 const Stars = () => {
-  const ref = useRef() as React.MutableRefObject<THREE.Points>;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const ref = useRef<any>(null);
 
   const mySphere = inSphere(new Float32Array(5000), {
     radius: 1.2,
@@ -12,7 +13,7 @@ const Stars = () => {
 
   useFrame((_, delta) => {
     if (!ref.current) return;
-    ref.current!.rotation.x -= delta / 10;
+    ref.current.rotation.x -= delta / 10;
     ref.current.rotation.y -= delta / 15;
   });
 
@@ -38,7 +39,6 @@ const StarsCanvas = () => {
         <Suspense fallback={null}>
           <Stars />
         </Suspense>
-
         <Preload all />
       </Canvas>
     </div>
